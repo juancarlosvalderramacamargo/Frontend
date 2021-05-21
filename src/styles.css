@@ -2,3 +2,29 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.example-card {
+    max-width: 400px;
+    margin: 2em auto;    
+}
+
+.example-card-center{
+    max-width: 400px;
+    margin: 2em auto; 
+    text-align: center;
+}
+
+.full-width-field {
+    min-width: 100px;
+    max-width: 350px;
+    width: 100%;
+ }
+
+ .login-card{
+    max-width: 400px;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;  
+ }

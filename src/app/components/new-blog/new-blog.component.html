@@ -1,3 +1,29 @@
-<h2>Create</h2>
-<div><span>title: </span>{{newBlog.title}}</div>
-<div><span>content: </span>{{newBlog.content}}</div>
+<div class="login-card">
+<mat-card >
+    <mat-card-title>
+    Create new blog
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)">
+            <mat-form-field class="full-width-input" appearance="outline">
+              <mat-label>Title</mat-label>
+              <input type = "text" matInput placeholder="insert title" formControlName="title">
+              <mat-error *ngIf="!rForm.controls['title'].valid && rForm.controls['title'].touched ">Debe ingresar un titulo para el blog!</mat-error>
+            </mat-form-field>          
+            <mat-form-field class="full-width-input">
+                <mat-label>Content</mat-label>
+                <textarea matInput placeholder="insert content blog" formControlName="content"></textarea>
+                <mat-hint align="end">Here's content blog</mat-hint>
+                <mat-error *ngIf="!rForm.controls['content'].valid && rForm.controls['content'].touched ">Debe ingresar el contenido del blog!</mat-error>
+              </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary">create</button>
+        <button mat-raised-button color="accent">cancel</button>
+    </mat-card-actions>
+    <mat-card-footer>
+
+    </mat-card-footer>
+</mat-card>
+</div>
