@@ -1,10 +1,24 @@
 <div class="content" role="main">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <!-- <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button> -->
+      <h1>Blog</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'/login'"> Login </a>
+        <a mat-button [routerLink]="'/newBlog'"> Create Blog </a>
+        <a mat-button [routerLink]="'/showBlog'"> Show Blog </a>  
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-  <app-new-blog></app-new-blog>
+  <!-- <app-new-blog></app-new-blog>
   <mat-divider></mat-divider>
   <app-show-blog></app-show-blog>
   <mat-divider></mat-divider>
-  <app-login></app-login>
+  <app-login></app-login> -->
 </div>
 
 

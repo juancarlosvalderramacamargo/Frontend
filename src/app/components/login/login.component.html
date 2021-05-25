@@ -1,29 +1,37 @@
 
 <div class="login-card">
+    <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" class="example-form">
     <mat-card >
         <mat-card-title>
         login
-        </mat-card-title>
-        <mat-card-content>
-            <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" class="example-form">
+        </mat-card-title>        
+        <mat-card-content>            
                 <mat-form-field class="full-width-input" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input type = "email" matInput placeholder="example@exaple.co" formControlName="email">
                 <mat-icon matSuffix>contact_mail</mat-icon>
                 <mat-error *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched ">Debe ingresar un email!</mat-error>
                 </mat-form-field>         
-                <mat-form-field class="full-width-input" appearance="outline">
-                    <mat-label>Password</mat-label>
+                <!-- <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Password</mat-label>                    
                     <input type="Password" matInput placeholder="Password" formControlName="password">
                     <mat-icon matSuffix>keyboard</mat-icon>
                     <mat-error *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched ">Debe ingresar la contraseña!</mat-error>
-                </mat-form-field>
-            </form>
+                </mat-form-field> -->
+                <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched ">Debe ingresar la contraseña!</mat-error>
+                  </mat-form-field>            
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button color="primary">login</button>
         </mat-card-actions>
         <mat-card-footer>
-        </mat-card-footer>
+        </mat-card-footer>    
     </mat-card>
+    </form>
 </div>

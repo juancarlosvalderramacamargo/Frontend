@@ -3,11 +3,11 @@ import {Ilogin} from './../interfaces/Ilogin'
 
 export class Login implements Ilogin {
     
-    email: string;
-    password: string;   
+    EMAIL: string;
+    PASSWORD: string;   
     
-    constructor(email: string, password: string){
-    this.email = email;
-    this.password = password;
+    constructor(EMAIL: string, PASSWORD: string){
+    this.EMAIL = EMAIL;
+    this.PASSWORD = PASSWORD;
     }  
 }

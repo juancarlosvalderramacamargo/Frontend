@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup , FormBuilder , Validators} from '@angular/forms'
-import {Login} from '../../models/login'
+import { FormGroup , FormBuilder , Validators} from '@angular/forms';
+import {Login} from '../../models/login';
 import { Router } from '@angular/router';
+import {userService} from 'src/app/services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   rForm : FormGroup;
   login!: Login;
-  constructor(private router: Router , private fb : FormBuilder) {
+  hide = true;
+  constructor(private userService: userService,private router: Router , private fb : FormBuilder) {
     this.rForm = fb.group({
       'email': ["", Validators.compose([Validators.required,Validators.email])],
       'password': ["" , Validators.compose([Validators.required])],
@@ -20,8 +22,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.login = new Login("", "");
   }
-  onSubmit(req: Login){
+
+  onSubmit(post:Login){
     //let algo = req.title;
-    this.router.navigate(["/home"] );
+    //this.userService.login(req).subscribe(res=>{ this.router.navigateByUrl('/auth')});
+    console.log(post);
+    let algo =this.userService.login(post);
+    console.log(algo);
+    this.router.navigate(["/showBlog"] );
   }
 }

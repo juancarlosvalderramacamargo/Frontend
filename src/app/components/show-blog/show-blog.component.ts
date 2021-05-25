@@ -18,4 +18,7 @@ export class ShowBlogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngLike():void{
+    console.log("like click");
+  }
 }
